@@ -27,12 +27,19 @@ const db = getFirestore(app);
 
 let TableData = [];
 
+let currentPage = 1;
+const itemsPerPage = 6;
+
 function showAddIssueForm() {
   document.getElementById("addIssueForm").style.display = "block";
+  document
+    .getElementById("addIssueForm")
+    .scrollIntoView({ behavior: "smooth" });
   document.getElementById("time").value = "";
   document.getElementById("station").value = "";
   document.getElementById("platform").value = "";
   document.getElementById("issue").value = "";
+  document.getElementById("station").focus();
 }
 
 function hideAddIssueForm() {
@@ -83,7 +90,6 @@ function renderStationIssues() {
 function renderIssues(issues) {
   const tbody = document.getElementById("issueLog");
   tbody.innerHTML = "";
-
   issues.forEach((item) => {
     let tr = document.createElement("tr");
 
