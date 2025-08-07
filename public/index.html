@@ -37,106 +37,105 @@
       src="/__/firebase/12.0.0/firebase-performance-compat.js"
     ></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="regislog.js"></script>
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header><h1>Radio Station Dashboard</h1></header>
-    <div class="container">
-      <h2>Playback Issue Log</h2>
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="Search by station or platform..."
-        onkeyup="searchFunc()"
-      />
-      <div class="table-container" id="table-container">
-        <table id="Tablelogs">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Station</th>
-              <th>Platform</th>
-              <th>Issue</th>
-              <th>Date Added</th>
-            </tr>
-          </thead>
-          <tbody id="issueLog"></tbody>
-        </table>
+    <div class="main">
+      <div class="logo">
+        <a href="/"
+          ><img
+            src="https://mbcmediagroup.com/logos/main-color.png"
+            height="100px"
+            alt=""
+        /></a>
       </div>
-      <div id="loveyesrock" style="display: none">
-        <h3>Yes FM Issue Log</h3>
-        <div class="table-container">
-          <table id="YesFMlogs">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Station</th>
-                <th>Platform</th>
-                <th>Issue</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody id="Yesissuelogs"></tbody>
-          </table>
-        </div>
-        <br />
-        <h3>Love Radio Issue Log</h3>
-        <div class="table-container">
-          <table id="LOVERADIOlogs">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Station</th>
-                <th>Platform</th>
-                <th>Issue</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody id="LOVEissuelogs"></tbody>
-          </table>
-        </div>
-        <br />
-        <h3>Easy Rock Issue Log</h3>
-        <div class="table-container">
-          <table id="EASYROCKlogs">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Station</th>
-                <th>Platform</th>
-                <th>Issue</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody id="EASYissuelog"></tbody>
-          </table>
-        </div>
+
+      <div class="auth-container">
+        <div id="signInMessage" class="messageDiv" style="display: none"></div>
+        <form id="loginForm" class="auth-form active">
+          <h1>Login</h1>
+          <p>Please enter your email and password to log in.</p>
+          <hr />
+
+          <label for="email"><b>Email</b></label>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            id="email"
+            name="email"
+            required
+          />
+
+          <label for="password"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="password"
+            name="password"
+            required
+          />
+          <button type="submit" id="loginButton">Login</button>
+          <p>
+            Don't have an account?
+            <a href="#" style="color: dodgerblue" id="showRegis">Sign up here</a
+            >.
+          </p>
+        </form>
+        <div id="signUpMessage" class="messageDiv" style="display: none"></div>
+        <form id="registerForm" class="auth-form">
+          <h1>Sign Up</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr />
+          <label for="Fname"><b>Firstname</b></label>
+          <input type="text" placeholder="First Name" id="Fname" required />
+          <label for="Lname"><b>Lastname</b></label>
+          <input type="text" placeholder="Last Name" id="Lname" required />
+
+          <label for="Signemail"><b>Email</b></label>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            id="Signemail"
+            name="email"
+            required
+          />
+
+          <label for="Signpassword"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="Signpassword"
+            name="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            required
+          />
+          <div id="passvalidate">
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">
+              A <b>capital (uppercase)</b> letter
+            </p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+          </div>
+          <button type="submit" id="signupButton">Sign Up</button>
+          <p>
+            Already have an account?
+            <a href="#" style="color: dodgerblue" id="showLogin">Sign in here</a
+            >.
+          </p>
+        </form>
       </div>
-      <br />
-      <a href="#addIssueForm"><button id="addIssueButton">Add Issue</button></a>
-      <button id="ViewSeparateIssuesButton">View separate</button>
-      <button id="ViewAllIssuesButton" style="display: none">
-        View All Issues
-      </button>
-      <div id="addIssueForm" style="display: none">
-        <label for="time">Time:</label>
-        <input type="time" id="time" />
-        <label for="station">Station:</label>
-        <select id="station">
-          <option value="YES FM">YES FM</option>
-          <option value="Love Radio">Love Radio</option>
-          <option value="Easy Rock">Easy Rock</option>
-        </select>
-        <label for="platform">Platform:</label>
-        <select id="platform">
-          <option value="Web">Web</option>
-          <option value="Mobile">Mobile</option>
-        </select>
-        <label for="issue">Issue:</label>
-        <input type="text" id="issue" placeholder="Describe the issue" />
-        <button id="submitIssueButton">Submit</button>
-        <button id="cancelAddIssueButton">Cancel</button>
+      <div class="relative-container">
+        <img
+          src="https://api.mbcmediagroup.com/api/v1/media/display?bucket=mmg-bucket&key=hero/background/2024/2/n7KpUzNia5CuiFA--DfaZ.webp"
+          class="ImageComponent_background__4ldn1"
+          alt
+          width="auto"
+          height="auto"
+        />
+        <div class="bg-overlay-blue"></div>
       </div>
     </div>
   </body>

@@ -13,6 +13,8 @@ service cloud.firestore {
       // else all client requests to your database will be denied until you
       // update your rules.
       allow read, write: if true;
+      allow create: if request.auth != null && request.auth.uid == userId;
     }
   }
 }
+
