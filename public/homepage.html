@@ -52,115 +52,116 @@
       />
       <div class="bg-overlay-blue"></div>
     </div>
+    <div class="main-content-wrapper">
+      <header><h1>Radio Station Dashboard</h1></header>
+      <div class="container">
+        <h2>Playback Issue Log</h2>
 
-    <header><h1>Radio Station Dashboard</h1></header>
-    <div class="container">
-      <h2>Playback Issue Log</h2>
-
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="Search by station or platform..."
-        onkeyup="searchFunc()"
-      />
-      <div class="table-container" id="table-container">
-        <table id="Tablelogs">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Station</th>
-              <th>Platform</th>
-              <th>Issue</th>
-              <th>Date Added</th>
-            </tr>
-          </thead>
-          <tbody id="issueLog"></tbody>
-        </table>
-      </div>
-      <div
-        id="pagination-controls"
-        style="text-align: center; margin: 20px 0"
-      ></div>
-      <div id="loveyesrock" style="display: none">
-        <h3>Yes FM Issue Log</h3>
-        <div class="table-container">
-          <table id="YesFMlogs">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Station</th>
-                <th>Platform</th>
-                <th>Issue</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody id="Yesissuelogs"></tbody>
-          </table>
-        </div>
-        <br />
-        <h3>Love Radio Issue Log</h3>
-        <div class="table-container">
-          <table id="LOVERADIOlogs">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Station</th>
-                <th>Platform</th>
-                <th>Issue</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody id="LOVEissuelogs"></tbody>
-          </table>
-        </div>
-        <br />
-        <h3>Easy Rock Issue Log</h3>
-        <div class="table-container">
-          <table id="EASYROCKlogs">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Station</th>
-                <th>Platform</th>
-                <th>Issue</th>
-                <th>Date Added</th>
-              </tr>
-            </thead>
-            <tbody id="EASYissuelog"></tbody>
-          </table>
-        </div>
-      </div>
-      <br />
-      <button id="addIssueButton">Add Issue</button>
-      <button id="ViewSeparateIssuesButton">View separate</button>
-      <button id="ViewAllIssuesButton" style="display: none">
-        View All Issues
-      </button>
-      <button id="logoutButton">Log out</button>
-      <div id="addIssueForm" style="display: none">
-        <label for="time">Time:</label>
-        <input type="time" id="time" />
-        <label for="station">Station:</label>
-        <select id="station" name="station" aria-label="Station">
-          <option value="YES FM">YES FM</option>
-          <option value="Love Radio">Love Radio</option>
-          <option value="Easy Rock">Easy Rock</option>
-        </select>
-        <label for="platform">Platform:</label>
-        <select id="platform" name="platform" aria-label="Platform">
-          <option value="Web">Web</option>
-          <option value="Mobile">Mobile</option>
-        </select>
-        <label for="issue">Issue Description</label>
         <input
-          id="issue"
-          name="issue"
-          type="text"
-          aria-required="true"
-          placeholder="Please describe the issue"
+          type="search"
+          id="searchInput"
+          placeholder="Search by station or platform..."
+          onkeyup="searchFunc()"
         />
-        <button id="submitIssueButton">Submit</button>
-        <button id="cancelAddIssueButton">Cancel</button>
+        <div class="table-container" id="table-container">
+          <table id="Tablelogs">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Station</th>
+                <th>Platform</th>
+                <th>Issue</th>
+                <th>Date Added</th>
+              </tr>
+            </thead>
+            <tbody id="issueLog"></tbody>
+          </table>
+        </div>
+        <div
+          id="pagination-controls"
+          style="text-align: center; margin: 20px 0"
+        ></div>
+        <div id="loveyesrock" style="display: none">
+          <h3>Yes FM Issue Log</h3>
+          <div class="table-container">
+            <table id="YesFMlogs">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Station</th>
+                  <th>Platform</th>
+                  <th>Issue</th>
+                  <th>Date Added</th>
+                </tr>
+              </thead>
+              <tbody id="Yesissuelogs"></tbody>
+            </table>
+          </div>
+          <br />
+          <h3>Love Radio Issue Log</h3>
+          <div class="table-container">
+            <table id="LOVERADIOlogs">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Station</th>
+                  <th>Platform</th>
+                  <th>Issue</th>
+                  <th>Date Added</th>
+                </tr>
+              </thead>
+              <tbody id="LOVEissuelogs"></tbody>
+            </table>
+          </div>
+          <br />
+          <h3>Easy Rock Issue Log</h3>
+          <div class="table-container">
+            <table id="EASYROCKlogs">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Station</th>
+                  <th>Platform</th>
+                  <th>Issue</th>
+                  <th>Date Added</th>
+                </tr>
+              </thead>
+              <tbody id="EASYissuelog"></tbody>
+            </table>
+          </div>
+        </div>
+        <br />
+        <button id="addIssueButton">Add Issue</button>
+        <button id="ViewSeparateIssuesButton">View separate</button>
+        <button id="ViewAllIssuesButton" style="display: none">
+          View All Issues
+        </button>
+        <button id="logoutButton">Log out</button>
+        <div id="addIssueForm" style="display: none">
+          <label for="time">Time:</label>
+          <input type="time" id="time" />
+          <label for="station">Station:</label>
+          <select id="station" name="station" aria-label="Station">
+            <option value="YES FM">YES FM</option>
+            <option value="Love Radio">Love Radio</option>
+            <option value="Easy Rock">Easy Rock</option>
+          </select>
+          <label for="platform">Platform:</label>
+          <select id="platform" name="platform" aria-label="Platform">
+            <option value="Web">Web</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+          <label for="issue">Issue Description</label>
+          <input
+            id="issue"
+            name="issue"
+            type="text"
+            aria-required="true"
+            placeholder="Please describe the issue"
+          />
+          <button id="submitIssueButton">Submit</button>
+          <button id="cancelAddIssueButton">Cancel</button>
+        </div>
       </div>
     </div>
   </body>
