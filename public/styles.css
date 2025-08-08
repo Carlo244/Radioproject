@@ -12,9 +12,9 @@
   --light-bg: #ffffff;
   --table-hover: #e2e6ea;
   --border: #e0e0e0;
-  --text-color: #343a40;
-  --heading-color: #34495e;
-  --subheading-color: #495057;
+  --text-color: #000000;
+  --heading-color: #1a1a1a;
+  --subheading-color: #333333;
 }
 
 html {
@@ -76,7 +76,7 @@ header h1 {
 .auth-container {
   flex: 1;
   max-width: 500px;
-  background-color: #002b40ac;
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -86,6 +86,8 @@ header h1 {
 }
 
 .auth-form {
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   visibility: hidden;
   padding: 1rem;
@@ -96,7 +98,6 @@ header h1 {
 }
 
 .auth-form.active {
-  color: #fff;
   opacity: 1;
   visibility: visible;
   height: auto;
@@ -438,7 +439,7 @@ tbody tr:hover {
   }
 
   .auth-container {
-    width: 100%;
+    width: auto;
     max-width: 100%;
   }
 }
